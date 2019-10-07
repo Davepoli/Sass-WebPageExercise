@@ -1,0 +1,42 @@
+%button {
+	font: {
+		size: em(17);
+		family: $font-family-sans;
+	}
+
+	color: $color-text;
+	border: none;
+	cursor: pointer;
+
+	text-transform: uppercase;
+	display: inline-block;
+
+	margin: em(34, 17) 0;
+	padding: em(20, 17) em(24, 17);
+
+	@include rounded;
+
+}
+@each $btn, $color in $button-colors-paddings {
+$colorbtn: nth($color, 1);
+$paddingbtn: nth($color, 2);
+
+	.btn-#{$btn} {
+		@extend %button;
+		background-color: rgba($colorbtn, 1);
+
+		&:hover, &:focus {
+			background-color: rgba($colorbtn, 0.9);
+			}
+		@if ( $btn == 'white' ) {
+			color: $color-bg-body;
+		}
+		@else {
+			text-shadow: 1px 1px 0 darken($colorbtn, 15%);
+		}
+	padding: $paddingbtn;
+	}
+
+}
+
+

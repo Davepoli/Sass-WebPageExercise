@@ -1,0 +1,126 @@
+
+@import 'variables';		//variables
+@import 'mixins';		//function and mixins
+@import 'general';			//global rules
+@import 'typography';		//fonts and stuff
+@import 'header';			//navigation
+@import 'colors';			//content colors
+@import 'content';			//content rules
+@import 'buttons';
+@import 'footer';
+
+@import 'pages/gallery';
+@import 'pages/home';
+@import 'pages/contact';
+@import 'pages/blog';
+
+
+/*
+ *	UI ELEMENTS
+ ------------------------------------------------------ */
+
+
+
+
+/*
+ *	MAIN
+ ------------------------------------------------------ */
+
+@each $page, $color in $page-colors {
+
+$bgcolor: nth($color, 1);
+$bordercolor: nth($color, 2);
+$shadowcolor: nth($color, 3);
+$activacolor: nth($color, 4);
+
+	.#{$page} {
+		main  {
+			background:  $bgcolor;
+			border-top: 1px solid darken( $bgcolor, $bordercolor );
+		}
+		.shadow { text-shadow: -1px 1px 0px darken( $bgcolor, $shadowcolor ); }
+		.active a { color: darken( $bgcolor, $activacolor ); }
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/* HOMEPAGE */
+
+.home article {
+	padding-bottom: 0;
+}
+
+.bigass {
+	margin-top: 44px;
+	position: relative;
+	z-index: 1;
+	top: 7px;
+	transition: .2s top ease-in-out;
+	border-radius: 12px 12px 0 0;
+
+	&:hover,
+	&:focus {
+		top: 0;
+	}
+}
+
+/* GALLERY
+
+.image-grid {
+	margin-top: 48px;
+}
+
+.image-grid img {
+	border-radius: 4px;
+}
+
+.gallery-img {
+	float: left;
+	width: 486px;
+	margin: 5px;
+}
+ */
+
+
+
+
+
+
+
+
+/*
+ *	MEDIA QUERIES
+ ------------------------------------------------------ */
+
+/*@media (max-width: 40em) {
+
+	.pre-footer,
+	main {
+		font-size: 85%;
+	}
+
+	.post-list {
+		width: 100%;
+	}
+
+	main h2 br,
+	.pre-footer p br {
+		display: none;
+	}
+
+	.gallery-img {
+		float: none;
+		width: 100%;
+		margin: 0.5em 0;
+	}
+
+}*/

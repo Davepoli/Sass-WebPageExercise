@@ -1,0 +1,21 @@
+/*
+ *	HEADER
+ ------------------------------------------------------ */
+
+.site-header {
+	background: #fff;
+
+	a {
+		font-size: em(13);
+		text-align: center;
+		display: inline-block;
+		padding: em(24, 13) em(8, 13);
+		color: $color-muted;
+
+		&:hover,
+		&:focus {
+			color: darken( $color-muted, 15%);
+		}
+	}
+}
+
